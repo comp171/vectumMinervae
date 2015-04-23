@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class aranea
+{
+
+	public static void main(String[] args)
+	{
+		//Create the scanner
+		Scanner input = new Scanner(System.in);
+		
+		//Get investment amount
+		System.out.print("Enter the initial investment amount ($): ");
+		double initialInvestment = input.nextDouble();
+		
+		//Get annual interest rate
+		System.out.print("Enter the annual interest rate as a percent (example: 5.25 for 5.25%): ");
+		double annualInterestRate = (input.nextDouble() * .01);
+		
+		//Get number of years
+		System.out.print("Enter the number of years: ");
+		double numberOfYears = input.nextDouble();
+		
+		//Define monthly interest rate variable
+		double monthlyInterestRate = (annualInterestRate / 12.0);
+		
+		//Define future investment variable
+		double futureInvestmentValue = (initialInvestment * Math.pow(1 + monthlyInterestRate, numberOfYears * 12));
+		
+		//Display result with two decimal places
+		System.out.print("Your expected future investment value is $" + (int)(futureInvestmentValue * 100) / 100.0);
+		
+		
+	}
+
+}
