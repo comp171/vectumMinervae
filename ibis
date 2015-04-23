@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class ibis 
+{
+
+	public static void main(String[] args)
+	{
+		//Create scanner
+		Scanner input = new Scanner(System.in);
+		
+		//Get bill total from user
+		System.out.print("Enter the total amount of your bill ($): ");
+		double originalTotal = input.nextDouble();
+		
+		//Get desired gratuity rate from user
+		System.out.print("Enter the rate at which you wish to tip (%): ");
+		double desiredRate = input.nextDouble();
+		
+		//Convert rate to a decimal and get tip amount
+		double tipAmount = ((desiredRate * .01) * originalTotal);
+		
+		//Get new total
+		double newTotal = (tipAmount + originalTotal);
+		
+		//Display the new total and tip amount
+		System.out.println("Your new total is $" + newTotal + " and the tip you contributed was $" + tipAmount);
+		
+
+	}
+
+}
