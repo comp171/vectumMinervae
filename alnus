@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class alnus
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner input = new Scanner(System.in);
+		
+		 double futureInvestment;
+		 final int MAX_YEARS = 30;
+		 
+		System.out.print("Enter the amount of the loan: ");
+		double principal = input.nextDouble();
+		
+		System.out.print("Enter the annual interest rate (ex: 9 for 9%: ");
+		double annualInterest = input.nextDouble();
+		double annualInterestRate = annualInterest * .01;
+		
+		double monthlyRate = annualInterestRate / 12.0;
+		
+		System.out.println("Years\tFuture Value");
+		
+		for (int i = 1; i <= MAX_YEARS; i++)
+		{
+			futureInvestment = futureInvestmentValue(principal, monthlyRate, i);
+			System.out.printf("%d\t%.2f\n", i, futureInvestment);
+		}
+	}//Main
+	
+	
+	public static double futureInvestmentValue(double principal, double monthlyRate, int years)
+	{
+		double futureInvestment = principal * Math.pow((1 + monthlyRate),(years * 12)); 
+		
+		return futureInvestment;
+	}//Method
+		
+	
+
+}//Class
