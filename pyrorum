@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class pyrorum
+{
+
+	public static void main(String[] args) 
+	{
+		//Scanner
+		Scanner input = new Scanner(System.in);
+		
+		//Variables
+		final double INCREMENT = 0.125;
+		final double MAX_INTEREST = 8.0;
+		double annualRate;
+		
+		//Ask user for loan amount and period
+		System.out.print("Please enter the amount of your loan: ");
+		double principal = input.nextDouble();
+		
+		System.out.print("Please enter the length of your loan in years: ");
+		double years = input.nextDouble();
+		
+		System.out.println("Interest Rate\tMonthly Payment\tTotal Payment");
+		
+		//Loop
+		for (annualRate = 5.0; annualRate <= MAX_INTEREST; annualRate += INCREMENT )
+		{
+			// Calculate payment
+			double monthlyRate = ((annualRate * .01) / 12.0);
+			double monthlyPayment = principal * monthlyRate / (1 - 1 / Math.pow(1 + monthlyRate, years * 12.0));
+		    double totalPayment = monthlyPayment * years * 12.0;
+		    System.out.printf("%1.3f%c\t\t%3.2f\t\t%5.2f\n", annualRate, '%', monthlyPayment, totalPayment);
+		}
+		
+		
+		
+		
+	}
+
+}
