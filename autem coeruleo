@@ -1,0 +1,133 @@
+import java.util.Scanner;
+
+public class autem coeruleo
+{
+	
+	public static void main(String[] args)
+	{
+		//Declarations
+		boolean valid = false;
+		char[] charArray;
+		char numberOut;
+		boolean quit = false;
+		
+		
+		//Scanner
+		Scanner input = new Scanner(System.in);
+		
+		do
+		{
+			//Prompt user for input
+			System.out.print("Enter a ten digit phone number as a string : ");
+			String originalIn = input.nextLine();
+			int stringLength = originalIn.length();
+			charArray = new char[stringLength];
+			String originalInLower = originalIn.toLowerCase();
+			
+			
+			if(originalInLower.equals("stop"))
+			{
+				System.out.println("You have successfully quit the program.");
+				System.exit(0);
+			}//if
+			
+			//Fill the array
+			for(int i = 0; i < stringLength; i++)
+			{
+				charArray[i] = originalIn.charAt(i);
+			}
+			
+			//Validate the array
+			for(int i = 0; i < stringLength; i++)
+			{
+				if(Character.isDigit(charArray[i]) == true || Character.isLetter(charArray[i]) == true || charArray[i] == '-')
+				{
+					valid = true;
+				}
+				else
+				{
+					stringLength = i;
+					System.out.println("Invalid Entry. Try again or enter 'stop' to quit.");
+					valid = false;
+				}//else
+				
+			}//for
+			
+		}while (valid == false);
+		
+		
+		//Call the method
+		for(int i = 0; i < charArray.length; i++)
+		{
+			numberOut = numberIt(charArray[i]);
+			System.out.print(numberIt(numberOut));
+				
+		}
+		
+		
+		
+		
+		
+		
+	}//Main
+	
+	public static char numberIt(char charArray)
+	{
+		if(Character.isDigit(charArray) || charArray == '-')
+		{
+			return charArray;
+		}
+		else
+		{
+			charArray = Character.toLowerCase(charArray);
+			switch(charArray)
+			{
+			case 'a': 
+			case 'b':
+			case 'c':
+				charArray = '2';
+				break;
+			case 'd':
+			case 'e':
+			case 'f':
+				charArray = '3';
+				break;
+			case 'g':
+			case 'h':
+			case 'i':
+				charArray = '4';
+				break;
+			case 'j':
+			case 'k':
+			case 'l':
+				charArray = '5';
+				break;
+			case 'm':
+			case 'n':
+			case 'o':
+				charArray = '6';
+				break;
+			case 'p':
+			case 'q':
+			case 'r':
+			case 's':
+				charArray = '7';
+				break;
+			case 't':
+			case 'u':
+			case 'v':
+				charArray = '8';
+				break;
+			case 'w':
+			case 'x':
+			case 'y':
+			case 'z':
+				charArray = '9';
+				break; 
+		
+			}
+		
+		}
+		return charArray;
+	}//numberIt Method
+}//Class
